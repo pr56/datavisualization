@@ -1,0 +1,5 @@
+ShapeName,Xaxis,Yaxis,Width,Height,Color,Radiusx,Radiusy
+rect,0,0,200,100,pink,0,0
+circle,250,50,0,0,blue,50,0
+ellipse,250,50,0,0,black,150,50
+line,20,100,150,150,yellow,0,0
