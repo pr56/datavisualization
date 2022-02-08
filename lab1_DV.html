@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <p>First paragraph</p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+<script>
+// QUESTION 1-5
+//     for(i=1;i<11;i++)
+//     {
+//         if(i<=5)
+//         {
+//             d3.select("body").append("div").style("color", "red").text(i).attr("class","first5");
+
+//         }
+//         else
+//         {
+//             d3.select("body").append("div").style("color", "green").text(i);
+//         }
+
+//     }
+    
+//     d3.selectAll(".first5").style("color", "purple").text("Start");
+//     d3.select("body").append("div").style("color", "green").text("Hello World!");
+//  console.log('d3.version:', d3.version);
+
+/*QUESTION 6*/
+// let otherdata = [ {name:'test', val:1, color:'blue'}, {name:'other', val:2,color:'red'}, {name:'b', val:3,color:'green'} ];
+
+// let paragraph = d3.select("body")
+//  .selectAll("div")
+//  .data(otherdata)
+//  .text(function (d, i) {
+//  console.log("d.name: " + d.name);
+//  console.log("d.val: " + d.val);
+//  console.log("i: " + i);
+//  console.log("this: " + this);
+//  return 'color:' + d.color; // return value is used to set the 'text'
+//  });
+
+/*QUESTION 7*/
+
+// let num = [10, 50, 100, 200];
+// let paragraph = d3.select("body")
+//  .selectAll("div")
+//  .data(num)
+//  .text(function (d, i) {
+//  return 'cont:' + d; // return value is used to set the 'text'
+//  })
+//  .style("color", function(d, i) {
+//  if ( d >= 50 && d<=100 ) {
+//  return "red";
+//  } else {
+//  return "yellow";
+//  }
+//  return 'blue';
+//  });
+
+/*QUESTION 8*/
+// for reference https://stackoverflow.com/questions/14636536/how-to-check-if-a-variable-is-an-integer-in-javascript
+// var myData = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z' ];
+ 
+// var p = d3.select("body")
+//  .selectAll("span")
+//  .data(myData)
+//  .enter()
+//  .append('p')
+//  .text(function (d, i) {
+//  return d;
+//  }) .style("color", function(d, i) {
+//  if ( typeof d==='number' ) {
+//  return "green";
+//  } else {
+//  return "blue";
+//  }
+//  return 'red';
+//  });
+// ;
+
+/*QUESTION 9*/
+
+// let titaniccsv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+
+
+// d3.csv(titaniccsv, function(data) {
+// //     let paragraph = d3.select("body")
+// //  .append("div")
+// //  .text(data.Name)
+// //  console.log( data.Name );
+
+// // RETURNING BASED ON SEX
+// var groupedData = d3.nest()
+//             .key(function (d) { return d.Sex; })
+//             .entries(data);
+       
+//         console.log("ArrayData[0] :", groupedData[0]);
+//         console.log("ArrayData[1] :", groupedData[1]);
+
+// //RETURNING NUMBER OF NAMES THAT INCLUDE MR. , MRS. OR OTHERS
+//       var mrname=  data.filter(function(d){ return d.Name.includes("Mr. ") })
+//       var mrsname=  data.filter(function(d){ return d.Name.includes("Mrs. ") })
+//       var othername=  data.filter(function(d){ return (d.Name != "Mr. " || d.Name != "Mrs. ") })
+
+
+//       console.log(mrname.length)
+//       console.log(mrsname.length)
+//       console.log(othername.length)
+
+//  if(data.Name.includes("Mr. "))
+//  {
+//      console.log("male")
+//      let paragraph = d3.select("body")
+//  .append("div")
+//  .text("male")
+//  }
+//  else if (data.Name.includes("Mrs. "))
+//  {
+//      console.log("female")
+//      let paragraph = d3.select("body")
+//  .append("div")
+//  .text("female")
+//  }
+//  else
+//  {
+//      console.log("others")
+//      let paragraph = d3.select("body")
+//  .append("div")
+//  .text("other")
+//  }
+
+// });
+
+/*QUESTION 10*/
+
+// let myArray = [];
+// let heartfailurecsv = 'https://raw.githubusercontent.com/akmand/datasets/master/heart_failure.csv';
+// /*
+// age,anaemia,creatinine_phosphokinase,diabetes,ejection_fraction,high_blood_pressure,platelets,serum_creatini
+// ne,serum_sodium,sex,smoking,time,DEATH_EVENT
+// 75,0,582,0,20,1,265000,1.9,130,1,0,4,1
+// 55,0,7861,0,38,0,263358.03,1.1,136,1,0,6,1
+// 65,0,146,0,20,0,162000,1.3,129,1,1,7,1
+// 50,1,111,0,20,0,210000,1.9,137,1,0,7,1
+// */
+// d3.csv(heartfailurecsv, function(data) {
+  
+//     // age above 50
+//     var ageabove50=  data.filter(function(d){ return d.age > 50 })
+//     console.log(ageabove50.length)
+
+
+//     var info = d3.nest()
+//     .key(function(d) { return d.high_blood_pressure; })
+//     .key(function(d){
+//       var ageGroup = null;
+//       if (d.age >=1 && d.age <= 30){
+//         ageGroup = '1-30';
+//       } else if (d.age >= 31 && d.age <= 40 ){
+//         ageGroup = '31-40';
+//       } else if (d.age >= 41 && d.age <= 60 ){
+//         ageGroup = '41-60';
+//       } else if (d.age >= 61 && d.age <= 100 ){
+//         ageGroup = '61-100';
+//       } 
+      
+//       return ageGroup;
+//     })
+//     .entries(heartfailurecsv);
+
+      
+    
+// });
+
+/*QUESTION 11*/
+
+ //Create SVG element
+ var svg = d3.select("body")
+ .append("svg")
+ .attr("width", 400)
+ .attr("height", 400)
+ .style("border", '1px solid green');
+ //Create line element inside SVG
+ svg.append("line")
+ .attr("x1", 100)
+ .attr("x2", 100)
+ .attr("y1", 50)
+ .attr("y2", 150)
+ .attr("stroke", "blue");
+ svg.append("line")
+ .attr("x1", 20)
+ .attr("x2", 20)
+ .attr("y1", 50)
+ .attr("y2", 150)
+ .attr("stroke", "green")
+ svg.append("line")
+ .attr("x1", 20)
+ .attr("x2", 100)
+ .attr("y1", 50)
+ .attr("y2", 50)
+ .attr("stroke", "red")
+ svg.append("line")
+ .attr("x1", 20)
+ .attr("x2", 100)
+ .attr("y1", 150)
+ .attr("y2", 150)
+ .attr("stroke", "yellow")
+</script>
+</body>
+</html>
